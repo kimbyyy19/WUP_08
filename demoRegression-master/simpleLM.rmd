@@ -63,7 +63,7 @@ abline(simp)
 summary.lm(simp)
 ```
   
-
+Same with the plot before this, head width is not a good variable to predict a bear's length. This is because the residual standard error is way higher than that of the first plot, and the adjusted R-square value is lower than that of the first plot. 
 
 
 
