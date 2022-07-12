@@ -55,7 +55,8 @@ summary.lm(simp)
 ```
 
 Given that the residual standard error of this scatter plot is higher than that of the first plot and the adjusted R-squared of this plot is smaller than that of the first plot, therefore, the neck size is still the best variable that can predict a bear's length so far. 
-
+## Model LENGTH~HEAD WIDTH
+  
 ```{r}
 simp <- lm(LENGTH~HEADWTH,data=bears)
 plot(LENGTH~HEADWTH,data=bears)
@@ -64,6 +65,7 @@ summary.lm(simp)
 ```
   
 Same with the plot before this, head width is not a good variable to predict a bear's length. This is because the residual standard error is way higher than that of the first plot, and the adjusted R-square value is lower than that of the first plot. 
+
 
 
 
