@@ -34,3 +34,15 @@ predict(simp,new,se.fit=TRUE)
 ```
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
 
+
+## Model LENGTH~WEIGHT 
+
+
+```{r}
+simp <- lm(LENGTH~WEIGHT,data=bears)
+plot(LENGTH~WEIGHT,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+Comparing this plot to the previous one, we can say that the length can be better predicted by the bear's neck rather than it's weight because the residual standard error of the first plot is smaller than that of the second plot.  
+
