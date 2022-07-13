@@ -15,15 +15,6 @@ knitr::opts_chunk$set(echo = TRUE)
 bears <- read.csv(file="BEARS.csv",header = TRUE)
 ```
 
-## Model LENGTH ~ NECK  this is an example  
-
-```{r}
-simp <- lm(LENGTH~NECK,data=bears)
-plot(LENGTH~NECK,data=bears)
-abline(simp)
-summary.lm(simp)
-```
-
 ## now predict the length of a bear who has a neck of 17, 22 and 26
 
 
@@ -32,6 +23,8 @@ new <- data.frame(NECK=c(17,22,26))
 predict(simp,new)
 predict(simp,new,se.fit=TRUE)
 ```
+
+
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
 
 
@@ -46,27 +39,6 @@ summary.lm(simp)
 ```
 Comparing this plot to the previous one, we can say that the length can be better predicted by the bear's neck rather than it's weight because the residual standard error of the first plot is smaller than that of the second plot.  
 
-## Model LENGTH~AGE
-```{r}
-simp <- lm(LENGTH~AGE,data=bears)
-plot(LENGTH~AGE,data=bears)
-abline(simp)
-summary.lm(simp)
-```
-
-Given that the residual standard error of this scatter plot is higher than that of the first plot and the adjusted R-squared of this plot is smaller than that of the first plot, therefore, the neck size is still the best variable that can predict a bear's length so far. 
-## Model LENGTH~HEAD WIDTH
-  
-```{r}
-simp <- lm(LENGTH~HEADWTH,data=bears)
-plot(LENGTH~HEADWTH,data=bears)
-abline(simp)
-summary.lm(simp)
-```
-  
-Same with the plot before this, head width is not a good variable to predict a bear's length. This is because the residual standard error is way higher than that of the first plot, and the adjusted R-square value is lower than that of the first plot. 
-
-## Model LENGTH~HEAD LENGTH
 
 ```{r}
 simp <- lm(LENGTH~HEADLEN,data=bears)
@@ -75,10 +47,39 @@ abline(simp)
 summary.lm(simp)
 ```
 
+When predicting length with head length the adjusted R- squared was larger than when predicting length with neck size. The residual standard error for head length is less than that of the neck size prediction. This tells us that predicting length using head length is a better comparison than using neck size to determine length.
 
 
-The points on the scatter plot appear to be tighter compared to the previous plots. Moreover, the residual standard error is 4.235 which is lower than that of the first plot, and the adjusted R-squared value is higher than that of the first plot. Therefore, head length is a better variable than neck in determining the length of a bear. 
+```{r}
+simp <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+
+Using age to predict length was worse than using neck to predict length. This is due to the adjusted R-squared being smaller when predicting length with age and the residual standard error was larger.
 
 
+```{r}
+simp <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(simp)
+summary.lm(simp)
+```
 
+Using head width to predict length was worse than using neck to predict length. This is because the adjusted R-squared was smaller when predicting length with head width and the residual standard error was larger.
+
+
+```{r}
+simp <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~CHEST,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+
+When using chest to predict length the adjusted R-squared was larger than when using neck to predict length. This shows that using chest to predict length was more effective than using neck size.
+Predicting length using head length was still more effective than using chest size however, because the adjusted R-squared was larger when using head length than using chest size.
+
+
+The results showed that the most effective method was using head length to predict length. This is true because the adjusted R-squared was the largest and the residual standard error was the smallest. The next best option was using chest size to predict length. Then using neck size to predict length. Using weight to predict length was next. Then using head width to predict length. Finally, using age to predict length was the worst of the options.
 
